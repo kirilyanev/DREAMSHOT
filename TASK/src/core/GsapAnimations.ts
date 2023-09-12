@@ -1,5 +1,6 @@
 import gsap from "gsap";
 import { CSSPlugin } from "gsap/CSSPlugin";
+
 gsap.registerPlugin(CSSPlugin);
 
 let rotation: string;
@@ -31,6 +32,7 @@ export function lockRotate(handleShadow: any, handle: any) {
 
 export function animation(
   openDoor: any,
+  openDoorShadow: any,
   closedDoor: any,
   scaleFactor: number,
   blink: any,
@@ -38,17 +40,47 @@ export function animation(
   blink2: any
 ) {
   const closedDoorX = closedDoor.x;
-  const targetX = closedDoorX + 1500 * scaleFactor;
+  const openDoorX = openDoor.x;
+  const closedDoorTargetX = closedDoorX + 1400 * scaleFactor;
+  const openDoorTargetX = openDoorX - 650 * scaleFactor;
   const tl = gsap.timeline();
 
   tl.to(closedDoor.scale, { x: -0.5, duration: 2, delay: 3 })
-    .to(closedDoor, { x: targetX, duration: 2 }, "-=2")
-    .to(closedDoor, { alpha: 0, duration: 0.2 }, "-=0.5")
-    .from(openDoor.scale, { x: 0, duration: 2 }, "-=1.9")
-    .to(openDoor, { alpha: 1, duration: 0.5 }, "-=1.5")
-    .to(blink, { rotation: "3", ease: "power4.inOut", duration: 2 })
-    .to(blink1, { rotation: "-4", ease: "power2.inOut", duration: 1 }, "-=1.5")
-    .to(blink2, { rotation: "8", ease: "power3.inOut", duration: 2 }, "-=2.2");
+    .to(closedDoor, { x: closedDoorTargetX, duration: 2 }, "-=2")
+    .to(closedDoor, { alpha: 0, duration: 0.1 }, "-=0.3")
+    .from(
+      [openDoor, openDoorShadow],
+      { x: openDoorTargetX, duration: 2 },
+      "-=1.5"
+    )
+    .from(
+      [openDoor.scale, openDoorShadow.scale],
+      { x: 0, duration: 2 },
+      "-=1.9"
+    )
+    .to([openDoor, openDoorShadow], { alpha: 1, duration: 0.1 }, "-=1.7")
+    .to([blink, blink1, blink2], {
+      alpha: 1,
+      rotation: "6",
+      stagger: 0.1,
+      duration: 0.5,
+    })
+    .fromTo(
+      blink,
+      { alpha: 0 },
+      { rotation: "6", alpha: 1, ease: "power4.inOut", duration: 1.4 }
+    )
+    .fromTo(
+      blink1,
+      { alpha: 0 },
+      { rotation: "-4", alpha: 1, ease: "power2.inOut", duration: 1.1 }
+    )
+    .fromTo(
+      blink2,
+      { alpha: 0 },
+      { rotation: "9", alpha: 1, ease: "power3.inOut", duration: 2.2 },
+      "-=2.2"
+    );
 
   setTimeout(() => tl.reverse(), 10000);
   return tl;

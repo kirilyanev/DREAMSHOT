@@ -1,23 +1,24 @@
-import type { BgConfig } from "./prefabs/ParallaxBackground";
+import type { BgConfig } from "./prefabs/Background";
+import type { ObjConfig } from "./prefabs/ClosedDoor";
 
 type Config = {
   backgrounds: Record<string, BgConfig>;
+  objects: Record<string, ObjConfig>;
 };
 
 export default {
   backgrounds: {
     forest: {
-      layers: [
-        "sky",
-        "clouds_1",
-        "rocks",
-        "clouds_2",
-        "ground_1",
-        "ground_2",
-        "ground_3",
-        "plant",
-      ],
+      layers: ["bg"],
       panSpeed: 0.2,
+    },
+  },
+  objects: {
+    closedDoor: {
+      assets: ["door", "handleShadow", "handle"],
+    },
+    openDoor: {
+      assets: ["doorOpen", "doorOpenShadow", "blink"],
     },
   },
 } as Config;
