@@ -1,36 +1,75 @@
-## 🎮 Simple 2D Game Framework for [PixiJS](https://pixijs.com) using [Vite⚡](https://vitejs.dev/)
+# Vault Safe Mini-Game
 
-<a href="https://pixi-framework.up.railway.app/" target="_blank">Demo</a>
+A simple mini-game where the player needs to enter a secret combination to unlock a vault safe and reveal the treasure inside.
 
-### Highlights 🌟
+![Game Preview 1](public/Preview/vault.jpg)
+![Game Preview 2](public/Preview/vaultOpen.jpg)
 
-- Typescript
-- <a href="https://c.tenor.com/Hw0aKasI6B4AAAAC/fast-blazing-fast.gif" target="_blank">Blazing fast</a> builds and HMR through Vite
-- Scene management
-- Automagic asset loading per scene (sounds, spritesheets, textures, spine)
-- Keyboard input handling
-- Spine!
+## Table of Contents
 
-## Usage 🛠️
+- [Features](#features)
+- [Requirements](#requirements)
+- [Installation](#installation)
+- [Usage](#usage)
+- [Development](#development)
+- [License](#license)
+- [Commands](#commands)
 
-1. Clone repository `npx degit https://github.com/Hafaux/pixi-framework.git new-folder`
+## Features
 
-2. Navigate to the new directory and install the project dependencies using `npm install`
+- Dynamic generation of random secret combinations.
+- Interactive handle rotation mechanism.
+- Responsive design for various screen resolutions.
+- Animated door opening with a glitter effect on the treasure.
+- Error handling with code reset and handle spin animation.
 
-### Spine
+## Requirements
 
-Place your exported spine animations in the `public/<scene>/spine` folder. The framework will automatically load them when you create the scene.
+- JavaScript (ES6+)
+- TypeScript
+- Web browser with CSS3 and HTML5 support
 
-```typescript
-...
-const anim = new SpineAnimation("spine-name");
+## Installation
 
-parent.addChild(anim);
+1. Clone this repository to your local machine:
 
-await anim.play("anim-name");
-...
+   ```bash
+   git clone https://github.com/kirilyanev/DREAMSHOT.git
 
-```
+2. Navigate to the project directory:
+
+   ```bash
+   cd TASK
+
+3. Install the necessary dependencies:
+
+   ```bash
+   npm install
+   
+## Usage
+1. First start the server by typing in the console:
+   ```bash
+   npm run start
+
+2. Open your web browser and navigate to:
+
+   ```bash
+   http://localhost:3000/
+   
+This will launch the vault safe mini-game in a local server.
+
+3. To interact with the handle of the safe - [click left/right side of the screen to rotate the handle].
+
+4. The secret combination is logged in the browser console.
+
+5. If you enter the correct combination, the vault door will open, revealing the treasure.
+
+6. If you make an error, the game will reset, and you'll need to start from the beginning.
+
+## License
+This project is licensed under the MIT License, which means you are free to use, modify, and distribute the code for personal or commercial purposes. See the LICENSE file for more details.
+
+Enjoy the game!
 
 ### Commands 💻
 
