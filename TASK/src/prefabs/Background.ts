@@ -1,4 +1,4 @@
-import { Container, TilingSprite, Ticker, Texture, Sprite } from "pixi.js";
+import { Container, Texture, Sprite } from "pixi.js";
 import { centerObjects } from "../utils/misc";
 
 export type BgConfig = {
