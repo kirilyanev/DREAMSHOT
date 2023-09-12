@@ -2,6 +2,7 @@ import { generateNewCombination, secretCombination } from "./Combination";
 
 let remainingCombinations = secretCombination;
 
+
 export function updateCombinations(direction) {
   if (direction === undefined) {
     generateNewCombination();
@@ -9,6 +10,7 @@ export function updateCombinations(direction) {
     return false;
   }
 
+  // eslint-disable-next-line prefer-const
   let [count, requiredDirection] = remainingCombinations.shift().split(' ');
 
   if (requiredDirection !== direction) {
