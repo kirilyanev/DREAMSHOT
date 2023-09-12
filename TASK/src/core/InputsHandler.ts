@@ -3,8 +3,6 @@ import { generateNewCombination, secretCombination } from "./Combination";
 let remainingCombinations = secretCombination;
 
 export function updateCombinations(direction) {
-  console.log(remainingCombinations);
-
   if (direction === undefined) {
     generateNewCombination();
     remainingCombinations = secretCombination;
