@@ -2,8 +2,8 @@
 
 A simple mini-game where the player needs to enter a secret combination to unlock a vault safe and reveal the treasure inside.
 
-![Game Preview 1](TASK/public/Preview/vault.jpg)
-![Game Preview 2](TASK/public/Preview/vaultOpen.jpg)
+![Game Preview 1](public/Preview/images/vault.jpg)
+![Game Preview 2](public/Preview/images/vaultOpen.jpg)
 
 ## Table of Contents
 
