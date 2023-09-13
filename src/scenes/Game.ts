@@ -32,7 +32,7 @@ export default class Game2 extends Scene {
 
   load() {
     // Create sprites
-    this.background = new Background(config.backgrounds.forest);
+    this.background = new Background(config.backgrounds.vault);
     this.closedDoor = new ClosedDoor(config.objects.closedDoor);
     this.handle = new Handle(config.objects.closedDoor);
     this.handleShadow = new HandleShadow(config.objects.closedDoor);
