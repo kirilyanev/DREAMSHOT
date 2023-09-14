@@ -34,9 +34,6 @@ export default class Mouse extends utils.EventEmitter {
       const clickLocation = event.clientX < centerX ? "left" : "right";
 
       this.emit("leftMouseClick", clickLocation);
-
-      // Stop listening to mouse events after executing the code
-      // this.stopListeningToMouseEvents();
     }
   }
 }
