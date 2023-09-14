@@ -1,24 +1,24 @@
 import type { BgConfig } from "./prefabs/Background";
-import type { ObjConfig } from "./prefabs/ClosedDoor";
 
 type Config = {
-  backgrounds: Record<string, BgConfig>;
-  objects: Record<string, ObjConfig>;
+  background: Record<string, BgConfig>;
+  sprites: {
+    [key: string]: string;
+  };
 };
 
 export default {
-  backgrounds: {
+  background: {
     vault: {
-      layers: ["bg"],
-      panSpeed: 0.2,
+      assets: ["bg"],
     },
   },
-  objects: {
-    closedDoor: {
-      assets: ["door", "handleShadow", "handle"],
-    },
-    openDoor: {
-      assets: ["doorOpen", "doorOpenShadow", "blink"],
-    },
+  sprites: {
+    closedDoor: "door",
+    handleShadow: "handleShadow",
+    handle: "handle",
+    doorOpen: "doorOpen",
+    doorOpenShadow: "doorOpenShadow",
+    blink: "blink",
   },
 } as Config;

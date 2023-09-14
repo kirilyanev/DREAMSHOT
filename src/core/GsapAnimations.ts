@@ -40,25 +40,25 @@ export function animation(
   blink2: any
 ) {
   const closedDoorX = closedDoor.x;
-  const openDoorX = openDoor.x;
-  const closedDoorTargetX = closedDoorX + 1400 * scaleFactor;
-  const openDoorTargetX = openDoorX - 650 * scaleFactor;
+  const closedDoorTargetX = closedDoorX + 270 * scaleFactor;
   const tl = gsap.timeline();
 
-  tl.to(closedDoor.scale, { x: -0.5, duration: 2, delay: 3 })
-    .to(closedDoor, { x: closedDoorTargetX, duration: 2 }, "-=2")
+  tl.to(closedDoor.scale, { x: -0.05, duration: 2.2, delay: 3 })
+    .to(closedDoor, { x: closedDoorTargetX, duration: 2.2 }, "-=2.2")
     .to(closedDoor, { alpha: 0, duration: 0.1 }, "-=0.3")
-    .from(
+    .fromTo(
       [openDoor, openDoorShadow],
-      { x: openDoorTargetX, duration: 2 },
+      { x: -900, duration: 2 },
+      { x: -165, duration: 2 },
       "-=1.5"
     )
-    .from(
+    .fromTo(
       [openDoor.scale, openDoorShadow.scale],
-      { x: 0, duration: 2 },
-      "-=1.9"
+      { x: 0.1, duration: 1.5 },
+      { x: 1, duration: 1.5 },
+      "-=1.5"
     )
-    .to([openDoor, openDoorShadow], { alpha: 1, duration: 0.1 }, "-=1.7")
+    .to([openDoor, openDoorShadow], { alpha: 1, duration: 0.1 }, "-=1.6")
     .to([blink, blink1, blink2], {
       alpha: 1,
       rotation: "6",
