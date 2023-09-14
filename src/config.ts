@@ -8,7 +8,7 @@ type Config = {
 
 export default {
   backgrounds: {
-    forest: {
+    vault: {
       layers: ["bg"],
       panSpeed: 0.2,
     },
